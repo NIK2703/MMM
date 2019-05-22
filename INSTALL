@@ -1,0 +1,24 @@
+Для сборки программы необходимо загрузить следующие дистрибутивы:
+
+1) Atmel GNU Toolcahin
+"avr8-gnu-toolchain-installer-3.5.4.91-win32.any.x86" по ссылке:
+http://www.microchip.com/mymicrochip/filehandler.aspx?ddocname=en595057 и выполнить его установку. В качестве директории установки, рекомендуется указать "C:\Program Files (x86)"
+
+2) GNU Make
+загрузить по ссылке: http://fab.cba.mit.edu/classes/863.16/doc/projects/ftsmin/make-3.81.exe
+При установке рекомендуется использовать директорию C:\Program Files (x86)\GnuWin32
+
+Чтобы собрать программу необходимо из директории с исходным кодом blink_leds_ATmega8.c открыть консоль и ввести следующие команды:
+
+avr-gcc -mmcu=atmega8 blink_leds_ATmega8.c -std-gnu99 -o blink_leds.out
+avr-objcopy -j .text -j .data ihex blink_leds.out blink_leds.hex
+
+После ввода этих команд в директории с иходным кодом появятся файлы blink_leds.out и blink_leds.hex
+
+Для проверки работы программы необходимо установить программу Proteus:
+загрузить дестрибутив по ссылке: http://theproteus.ru/files/Proteus_8_Professional_id053_8.5.zip
+и установить его в директорию C:\Program Files (x86)\Proteus
+
+С исользованием Proteus необходимо собрать схему, изображённую на рисунке blink_led_proteus_scheme.PNG.В качаестве микроконтроллера необходимо использовать ATmega8.
+Далее в эмулируемый микроконтроллер необходимо прошить бинарный файл blink_leds.hex .
+После этого, чтобы увидеть результат работы программы, можно запустить эмуляцию схемы.
