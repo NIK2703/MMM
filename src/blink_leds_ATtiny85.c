@@ -6,7 +6,7 @@
 
 int main(void)
 {
-	DDRM = 0b11111111;
+	DDRB = 0b11111111;
 	while(true)
 	{
 		for(int i=0; i<8; i++)
